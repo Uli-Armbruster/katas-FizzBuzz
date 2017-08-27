@@ -10,36 +10,36 @@ namespace FizzBuzzKata
     {
         static void Main(string[] args)
         {
-            //1 => 1
-            //2 => 2
-            //3 => Fizz
-            //4 => 4
-            //5 => 5
-            //....
-            //15 => FizzBuzz
+            //Eingabe: Zahlen sammeln/erzeugen
+            //Verarbeitung: Zahl => Text
+            //Ausgabe: Text
 
-            var zahlen = Enumerable.Range(1, 18);
-            foreach (var zahl in zahlen)
+
+            var zahlen = Enumerable.Range(1, 18); //Infrastruktur
+            foreach (var zahl in zahlen) //Infrastruktur
             {
-                if (zahl % 3 == 0 && zahl % 5 == 0)
+                if (zahl % 3 == 0 && zahl % 5 == 0) //Domain
                 {
-                    Console.WriteLine("FizzBuzz");
-                    continue;
+                    var ausgabe = "FizzBuzz"; //Domain
+                    Console.WriteLine(ausgabe); //Infrastruktur
+                    continue; //Domain
                 }
 
-                if (zahl % 5 == 0)
+                if (zahl % 5 == 0) //Domain
                 {
-                    Console.WriteLine("Buzz");
-                    continue;
+                    var ausgabe = "Buzz"; //Domain
+                    Console.WriteLine(ausgabe); //Infrastruktur
+                    continue; //Domain
                 }
 
-                if (zahl % 3 == 0)
+                if (zahl % 3 == 0) //Domain
                 {
-                    Console.WriteLine("Fizz");
-                    continue;
+                    var ausgabe = "Fizz"; //Domain
+                    Console.WriteLine(ausgabe); //Infrastruktur
+                    continue; //Domain
                 }
 
-                Console.WriteLine(zahl);
+                Console.WriteLine(zahl); //Domain
             }
 
             Console.ReadKey();
