@@ -24,6 +24,7 @@ namespace FizzBuzzKata
 
             //Infrastruktur
             zahlen.RegelnAnwenden(regelwerk);
+            Console.ReadKey();
         }
 
        

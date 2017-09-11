@@ -1,40 +1,38 @@
 using System;
+using System.Collections.Generic;
 
 namespace FizzBuzzKata.Domain
 {
     internal class FizzBuzzRegelwerk
     {
         private readonly Action<string> _ausgabe;
+        private readonly List<IchBinEineRegel> _regeln;
 
         public FizzBuzzRegelwerk(Action<string> ausgabe)
         {
             _ausgabe = ausgabe;
+
+            _regeln = new List<IchBinEineRegel>
+            {
+                new RegelFuer3Und5(),
+                new RegelFuer5(),
+                new RegelFuer3(),
+                new RegelFallback()
+            };
         }
 
         public void Anwenden(int zahl)
         {
-            if (zahl % 3 == 0 && zahl % 5 == 0) //Domain
+            foreach (var regel in _regeln)
             {
-                var ausgabe = "FizzBuzz"; //Domain
-                _ausgabe(ausgabe); //Infrastruktur
-                return; //Domain
-            }
+                if (!regel.IstAnwendbar(zahl))
+                {
+                    continue;
+                }
 
-            if (zahl % 5 == 0) //Domain
-            {
-                var ausgabe = "Buzz"; //Domain
-                _ausgabe(ausgabe); //Infrastruktur
-                return; //Domain
+                _ausgabe(regel.Text);
+                break;
             }
-
-            if (zahl % 3 == 0) //Domain
-            {
-                var ausgabe = "Fizz"; //Domain
-                _ausgabe(ausgabe); //Infrastruktur
-                return; //Domain
-            }
-
-            _ausgabe(zahl.ToString()); //Domain
         }
     }
 }
