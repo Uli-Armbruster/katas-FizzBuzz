@@ -14,6 +14,11 @@ namespace FizzBuzzKata
             //Verarbeitung: Zahl => Text
             //Ausgabe: Text
 
+            //API First
+            var ausgabe = Ausgabe.Konsole;
+            var zahlen = new GanzzahlenSequenz(1, 18);
+            var regelwerk = FizzBuzzRegelwerk(ausgabe);
+            zahlen.Anwenden(regelwerk);
 
             var zahlen = Enumerable.Range(1, 18); //Infrastruktur
             foreach (var zahl in zahlen) //Infrastruktur
