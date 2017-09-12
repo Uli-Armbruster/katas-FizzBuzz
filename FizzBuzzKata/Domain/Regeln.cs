@@ -29,17 +29,23 @@ namespace FizzBuzzKata.Domain
             private readonly Action _ausgabe;
             private readonly int[] _divisoren;
             private readonly IchBinEineRegel _nächsteRegel;
+            private readonly Func<int, int[], bool> _algorithmus;
 
-            public ZahlenZuTextRegel(Action ausgabe, int[] divisoren, IchBinEineRegel nächsteRegel)
+            public ZahlenZuTextRegel(
+                Action ausgabe, 
+                int[] divisoren, 
+                IchBinEineRegel nächsteRegel,
+                Func<int, int[], bool> algorithmus)
             {
                 _ausgabe = ausgabe;
                 _divisoren = divisoren;
                 _nächsteRegel = nächsteRegel;
+                _algorithmus = algorithmus;
             }
 
             public void Anwenden(int dividend)
             {
-                if (_divisoren.All(divisor => dividend % divisor == 0))
+                if (_algorithmus(dividend, _divisoren))
                 {
                     _ausgabe();
                     return;
