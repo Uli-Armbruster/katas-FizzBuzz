@@ -16,11 +16,14 @@ namespace FizzBuzzKata.Domain
                                        IchBinEineRegel nächsteRegel)
         {
             Action ausgabe = () => _ausgabe(regel.Item1);
-
+            Func<int, int[], bool> moduloAlgorithmus = (dividend, divisoren)
+                => divisoren.All(divisor => dividend % divisor == 0);
+             
             return new ZahlenZuTextRegel(
                                          ausgabe,
                                          regel.Item2,
-                                         nächsteRegel
+                                         nächsteRegel,
+                                         moduloAlgorithmus
                                         );
         }
 
