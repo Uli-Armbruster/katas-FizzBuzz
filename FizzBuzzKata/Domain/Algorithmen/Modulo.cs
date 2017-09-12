@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace FizzBuzzKata.Domain
+namespace FizzBuzzKata.Domain.Algorithmen
 {
-    public class Modulo : IchBinEinAlgorithmus
+    internal class Modulo : IchBinEinAlgorithmus
     {
         public Func<int, int[], bool> IstAnwendbar
             => (dividend, divisoren)

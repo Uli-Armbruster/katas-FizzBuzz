@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using FizzBuzzKata.Domain;
+using FizzBuzzKata.Domain.Regelwerke;
 using FizzBuzzKata.Infrastruktur;
 
 namespace FizzBuzzKata
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //API First
 
@@ -26,7 +22,5 @@ namespace FizzBuzzKata
             zahlen.RegelnAnwenden(regelwerk);
             Console.ReadKey();
         }
-
-       
     }
 }

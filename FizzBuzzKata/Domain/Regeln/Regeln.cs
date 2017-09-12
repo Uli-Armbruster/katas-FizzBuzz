@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace FizzBuzzKata.Domain
+using FizzBuzzKata.Domain.Algorithmen;
+
+namespace FizzBuzzKata.Domain.Regeln
 {
     internal class Regeln
     {
@@ -13,8 +15,8 @@ namespace FizzBuzzKata.Domain
             _algorithmus = algorithmus;
         }
 
-        public IchBinEineRegel Erzeuge(Tuple<string, int[]> regel,
-                                       IchBinEineRegel nächsteRegel)
+        public IchBinEineRegel ErzeugeZahlenZuTextRegel(Tuple<string, int[]> regel,
+                                                        IchBinEineRegel nächsteRegel)
         {
             Action ausgabe = () => _ausgabe(regel.Item1);
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace FizzBuzzKata.Domain
+namespace FizzBuzzKata.Domain.Regeln
 {
     internal class RegelFuer3 : Tuple<string, int[]>
     {

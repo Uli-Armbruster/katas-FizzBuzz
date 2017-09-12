@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FizzBuzzKata.Domain
+namespace FizzBuzzKata.Domain.Algorithmen
 {
     public interface IchBinEinAlgorithmus
     {

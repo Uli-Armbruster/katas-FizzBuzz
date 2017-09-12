@@ -1,7 +1,6 @@
-using System;
 using System.Linq;
 
-using FizzBuzzKata.Domain;
+using FizzBuzzKata.Domain.Regelwerke;
 
 namespace FizzBuzzKata.Infrastruktur
 {
@@ -19,7 +18,7 @@ namespace FizzBuzzKata.Infrastruktur
         public void RegelnAnwenden(FizzBuzzRegelwerk regelwerk)
         {
             Enumerable
-                .Range(1, 18)
+                .Range(_start, _ende)
                 .ToList()
                 .ForEach(regelwerk.Anwenden);
         }

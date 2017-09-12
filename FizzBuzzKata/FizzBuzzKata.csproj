@@ -37,15 +37,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\FizzBuzzRegelwerk.cs" />
-    <Compile Include="Domain\IchBinEinAlgorithmus.cs" />
-    <Compile Include="Domain\IchBinEineRegel.cs" />
-    <Compile Include="Domain\Modulo.cs" />
-    <Compile Include="Domain\RegelFallback.cs" />
-    <Compile Include="Domain\RegelFuer3.cs" />
-    <Compile Include="Domain\RegelFuer3Und5.cs" />
-    <Compile Include="Domain\RegelFuer5.cs" />
-    <Compile Include="Domain\Regeln.cs" />
+    <Compile Include="Domain\Regelwerke\FizzBuzzRegelwerk.cs" />
+    <Compile Include="Domain\Algorithmen\IchBinEinAlgorithmus.cs" />
+    <Compile Include="Domain\Regeln\IchBinEineRegel.cs" />
+    <Compile Include="Domain\Algorithmen\Modulo.cs" />
+    <Compile Include="Domain\Regeln\RegelFallback.cs" />
+    <Compile Include="Domain\Regeln\RegelFuer3.cs" />
+    <Compile Include="Domain\Regeln\RegelFuer3Und5.cs" />
+    <Compile Include="Domain\Regeln\RegelFuer5.cs" />
+    <Compile Include="Domain\Regeln\Regeln.cs" />
     <Compile Include="Infrastruktur\Ausgabe.cs" />
     <Compile Include="Infrastruktur\GanzzahlenSequenz.cs" />
     <Compile Include="Program.cs" />
