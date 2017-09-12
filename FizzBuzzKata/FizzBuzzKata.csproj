@@ -38,7 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\FizzBuzzRegelwerk.cs" />
+    <Compile Include="Domain\IchBinEinAlgorithmus.cs" />
     <Compile Include="Domain\IchBinEineRegel.cs" />
+    <Compile Include="Domain\Modulo.cs" />
     <Compile Include="Domain\RegelFallback.cs" />
     <Compile Include="Domain\RegelFuer3.cs" />
     <Compile Include="Domain\RegelFuer3Und5.cs" />

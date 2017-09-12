@@ -8,7 +8,7 @@ namespace FizzBuzzKata.Domain
 
         public FizzBuzzRegelwerk(Action<string> ausgabe)
         {
-            var regelFactory = new Regeln(ausgabe);
+            var regelFactory = new Regeln(ausgabe, new Modulo());
 
             var fallbackRegel = new RegelFallback(ausgabe);
             var regelFür3 = regelFactory.Erzeuge(new RegelFuer3(), fallbackRegel);

@@ -1,29 +1,28 @@
 ﻿using System;
-using System.Linq;
 
 namespace FizzBuzzKata.Domain
 {
     internal class Regeln
     {
         private readonly Action<string> _ausgabe;
+        private readonly IchBinEinAlgorithmus _algorithmus;
 
-        public Regeln(Action<string> ausgabe)
+        public Regeln(Action<string> ausgabe, IchBinEinAlgorithmus algorithmus)
         {
             _ausgabe = ausgabe;
+            _algorithmus = algorithmus;
         }
 
         public IchBinEineRegel Erzeuge(Tuple<string, int[]> regel,
                                        IchBinEineRegel nächsteRegel)
         {
             Action ausgabe = () => _ausgabe(regel.Item1);
-            Func<int, int[], bool> moduloAlgorithmus = (dividend, divisoren)
-                => divisoren.All(divisor => dividend % divisor == 0);
-             
+
             return new ZahlenZuTextRegel(
                                          ausgabe,
                                          regel.Item2,
                                          nächsteRegel,
-                                         moduloAlgorithmus
+                                         _algorithmus
                                         );
         }
 
@@ -32,13 +31,13 @@ namespace FizzBuzzKata.Domain
             private readonly Action _ausgabe;
             private readonly int[] _divisoren;
             private readonly IchBinEineRegel _nächsteRegel;
-            private readonly Func<int, int[], bool> _algorithmus;
+            private readonly IchBinEinAlgorithmus _algorithmus;
 
             public ZahlenZuTextRegel(
-                Action ausgabe, 
-                int[] divisoren, 
+                Action ausgabe,
+                int[] divisoren,
                 IchBinEineRegel nächsteRegel,
-                Func<int, int[], bool> algorithmus)
+                IchBinEinAlgorithmus algorithmus)
             {
                 _ausgabe = ausgabe;
                 _divisoren = divisoren;
@@ -48,7 +47,7 @@ namespace FizzBuzzKata.Domain
 
             public void Anwenden(int dividend)
             {
-                if (_algorithmus(dividend, _divisoren))
+                if (_algorithmus.IstAnwendbar(dividend, _divisoren))
                 {
                     _ausgabe();
                     return;
