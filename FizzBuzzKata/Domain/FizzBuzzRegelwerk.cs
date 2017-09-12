@@ -5,34 +5,21 @@ namespace FizzBuzzKata.Domain
 {
     internal class FizzBuzzRegelwerk
     {
-        private readonly Action<string> _ausgabe;
-        private readonly List<IchBinEineRegel> _regeln;
+        private readonly RegelFuer3Und5 _fizzbuzzRegeln;
 
         public FizzBuzzRegelwerk(Action<string> ausgabe)
         {
-            _ausgabe = ausgabe;
+            var fallbackRegel = new RegelFallback(ausgabe);
+            var regelFür3 = new RegelFuer3(ausgabe, fallbackRegel);
+            var regelFür5 = new RegelFuer5(ausgabe, regelFür3);
+            var regelFür3Und5 = new RegelFuer3Und5(ausgabe, regelFür5);
 
-            _regeln = new List<IchBinEineRegel>
-            {
-                new RegelFuer3Und5(),
-                new RegelFuer5(),
-                new RegelFuer3(),
-                new RegelFallback()
-            };
+            _fizzbuzzRegeln = regelFür3Und5;
         }
 
         public void Anwenden(int zahl)
         {
-            foreach (var regel in _regeln)
-            {
-                if (!regel.IstAnwendbar(zahl))
-                {
-                    continue;
-                }
-
-                _ausgabe(regel.Text);
-                break;
-            }
+            _fizzbuzzRegeln.Anwenden(zahl);
         }
     }
 }
