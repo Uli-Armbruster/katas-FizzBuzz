@@ -2,26 +2,10 @@ using System;
 
 namespace FizzBuzzKata.Domain
 {
-    internal class RegelFuer3 : IchBinEineRegel
+    internal class RegelFuer3 : Tuple<string, int[]>
     {
-        private readonly Action<string> _ausgabe;
-        private readonly IchBinEineRegel _nächsteRegel;
-
-        public RegelFuer3(Action<string> ausgabe, IchBinEineRegel nächsteRegel)
+        public RegelFuer3() : base("Fizz", new[] { 3 })
         {
-            _ausgabe = ausgabe;
-            _nächsteRegel = nächsteRegel;
-        }
-
-        public void Anwenden(int zuPrüfendeZahl)
-        {
-            if (zuPrüfendeZahl % 3 == 0)
-            {
-                _ausgabe("Fizz");
-                return;
-            }
-
-            _nächsteRegel.Anwenden(zuPrüfendeZahl);
         }
     }
 }

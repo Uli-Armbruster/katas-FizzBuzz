@@ -43,6 +43,7 @@
     <Compile Include="Domain\RegelFuer3.cs" />
     <Compile Include="Domain\RegelFuer3Und5.cs" />
     <Compile Include="Domain\RegelFuer5.cs" />
+    <Compile Include="Domain\Regeln.cs" />
     <Compile Include="Infrastruktur\Ausgabe.cs" />
     <Compile Include="Infrastruktur\GanzzahlenSequenz.cs" />
     <Compile Include="Program.cs" />
