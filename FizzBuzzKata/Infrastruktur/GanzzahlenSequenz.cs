@@ -1,5 +1,6 @@
 using System.Linq;
 
+using FizzBuzzKata.Domain.Regeln;
 using FizzBuzzKata.Domain.Regelwerke;
 
 namespace FizzBuzzKata.Infrastruktur
@@ -15,12 +16,12 @@ namespace FizzBuzzKata.Infrastruktur
             _ende = ende;
         }
 
-        public void RegelnAnwenden(FizzBuzzRegelwerk regelwerk)
+        public void RegelnAnwenden(IchBinEineRegel standard)
         {
             Enumerable
                 .Range(_start, _ende)
                 .ToList()
-                .ForEach(regelwerk.Anwenden);
+                .ForEach(standard.Anwenden);
         }
     }
 }

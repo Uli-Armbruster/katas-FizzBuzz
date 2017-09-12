@@ -37,10 +37,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Regelwerke\FizzBuzzRegelwerk.cs" />
+    <Compile Include="Domain\Algorithmen\RestGleich2.cs" />
+    <Compile Include="Domain\Regelwerke\FizzBuzzErweitert.cs" />
+    <Compile Include="Domain\Regelwerke\FizzBuzzModifiziert.cs" />
+    <Compile Include="Domain\Regelwerke\FizzBuzzOnSteroids.cs" />
+    <Compile Include="Domain\Regelwerke\FizzBuzzStandard.cs" />
     <Compile Include="Domain\Algorithmen\IchBinEinAlgorithmus.cs" />
     <Compile Include="Domain\Regeln\IchBinEineRegel.cs" />
-    <Compile Include="Domain\Algorithmen\Modulo.cs" />
+    <Compile Include="Domain\Algorithmen\RestGleich0.cs" />
     <Compile Include="Domain\Regeln\RegelFallback.cs" />
     <Compile Include="Domain\Regeln\RegelFuer3.cs" />
     <Compile Include="Domain\Regeln\RegelFuer3Und5.cs" />

@@ -5,13 +5,13 @@ using FizzBuzzKata.Domain.Regeln;
 
 namespace FizzBuzzKata.Domain.Regelwerke
 {
-    internal class FizzBuzzRegelwerk : IchBinEineRegel
+    internal class FizzBuzzStandard : IchBinEineRegel
     {
         private readonly IchBinEineRegel _fizzbuzzRegeln;
 
-        public FizzBuzzRegelwerk(Action<string> ausgabe)
+        public FizzBuzzStandard(Action<string> ausgabe)
         {
-            var regelFactory = new Regeln.Regeln(ausgabe, new Modulo());
+            var regelFactory = new Regeln.Regeln(ausgabe, new RestGleich0());
 
             var fallbackRegel = new RegelFallback(ausgabe);
             var regelFür3 = regelFactory.ErzeugeZahlenZuTextRegel(new RegelFuer3(), fallbackRegel);

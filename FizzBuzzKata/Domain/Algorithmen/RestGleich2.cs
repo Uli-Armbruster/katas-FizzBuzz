@@ -3,10 +3,10 @@ using System.Linq;
 
 namespace FizzBuzzKata.Domain.Algorithmen
 {
-    internal class Modulo : IchBinEinAlgorithmus
+    public class RestGleich2:IchBinEinAlgorithmus
     {
         public Func<int, int[], bool> IstAnwendbar
             => (dividend, divisoren)
-                => divisoren.All(divisor => dividend % divisor == 0);
+                => divisoren.All(divisor => dividend % divisor == 2);
     }
 }
