@@ -1,13 +1,19 @@
+using System;
+
 namespace FizzBuzzKata.Domain
 {
     internal class RegelFallback : IchBinEineRegel
     {
-        public string Text { get; private set; }
+        private readonly Action<string> _ausgabe;
 
-        public bool IstAnwendbar(int zahl)
+        public RegelFallback(Action<string> ausgabe)
         {
-            Text = zahl.ToString();
-            return true;
+            _ausgabe = ausgabe;
+        }
+
+        public void Anwenden(int zuPrüfendeZahl)
+        {
+            _ausgabe(zuPrüfendeZahl.ToString());
         }
     }
 }

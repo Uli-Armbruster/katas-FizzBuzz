@@ -1,13 +1,28 @@
+using System;
+
 namespace FizzBuzzKata.Domain
 {
     internal class RegelFuer3Und5 : IchBinEineRegel
     {
-        public string Text => "FizzBuzz";
+        private readonly Action<string> _ausgabe;
+        private readonly IchBinEineRegel _nächsteRegel;
 
-        public bool IstAnwendbar(int zahl)
+        public RegelFuer3Und5(Action<string> ausgabe, IchBinEineRegel nächsteRegel)
         {
-            return zahl % 3 == 0
-                   && zahl % 5 == 0;
+            _ausgabe = ausgabe;
+            _nächsteRegel = nächsteRegel;
+        }
+
+        public void Anwenden(int zuPrüfendeZahl)
+        {
+            if (zuPrüfendeZahl % 3 == 0
+                && zuPrüfendeZahl % 5 == 0)
+            {
+                _ausgabe("FizzBuzz");
+                return;
+            }
+
+            _nächsteRegel.Anwenden(zuPrüfendeZahl);
         }
     }
 }

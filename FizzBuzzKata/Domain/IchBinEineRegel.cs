@@ -2,8 +2,6 @@ namespace FizzBuzzKata.Domain
 {
     internal interface IchBinEineRegel
     {
-        string Text { get; }
-
-        bool IstAnwendbar(int zahl);
+        void Anwenden(int zuPrüfendeZahl);
     }
 }

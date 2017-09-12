@@ -1,9 +1,8 @@
 using System;
-using System.Collections.Generic;
 
 namespace FizzBuzzKata.Domain
 {
-    internal class FizzBuzzRegelwerk
+    internal class FizzBuzzRegelwerk : IchBinEineRegel
     {
         private readonly RegelFuer3Und5 _fizzbuzzRegeln;
 
